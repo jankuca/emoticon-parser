@@ -46,5 +46,32 @@ describe('EmoticonParser', function() {
                     .to.be('test <happy/>\n <sad/>');
         });
     });
+
+
+    describe("Emoticon List Results", function() {
+        it("test built-in symbol emo", function() {
+            expect(parser.listEmoticonsInText('test :)'))
+                    .to.eql([ 'happy' ]);
+        });
+        it("test built-in name wink", function() {
+            expect(parser.listEmoticonsInText('test (wink)'))
+                    .to.eql([ 'wink' ]);
+        });
+        it("test user-defined symbol emo", function() {
+            expect(parser.listEmoticonsInText('test :~'))
+                    .to.eql([ 'zzz' ]);
+        });
+        it("test user-defined symbol emo", function() {
+            expect(parser.listEmoticonsInText('test (zzz)'))
+                    .to.eql([ 'zzz' ]);
+        });
+        it("test several symbols", function() {
+            expect(parser.listEmoticonsInText('test :) :( '))
+                    .to.eql([ 'happy', 'sad' ]);
+        });
+        it("test new line 1", function() {
+            expect(parser.listEmoticonsInText('test :)\n:( '))
+                    .to.eql([ 'happy', 'sad' ]);
+        });
     });
 });
