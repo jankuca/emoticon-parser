@@ -1,6 +1,6 @@
 {
     "name": "emoticon-parser",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Emoticon parser",
     "main": "index.js",
     "scripts": {
